@@ -58,7 +58,7 @@ print("Creating data loader")
 # We use 90% of the dataset for training and 10% for testing
 train_graph_list = []
 test_graph_list = []
-for i in range(200):
+for i in range(800):
   x_i = torch.tensor(graph_psi_active[i,:]).reshape(-1,1)
   y_i = torch.tensor(graph_damage[i,:]).reshape(-1,1)
   train_graph_list.append(torchG.data.Data(x=x_i,edge_index=edges,y=y_i))
@@ -142,7 +142,7 @@ opt = Adam(model.parameters(), lr=2.e-3)
 # Learning rate scheduler
 sch = StepLR(opt, step_size=500, gamma=0.8)
 # Define the epochs
-EPOCHS = 2
+EPOCHS = 200
 
 ## Training
 print("Beginning training")
